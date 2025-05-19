@@ -1,0 +1,12 @@
+{
+  "Bank.Domain": "Bank.Domain.yml",
+  "Bank.Domain.BankAccount": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.#ctor(System.String,System.Double)": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.Balance": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.Credit(System.Double)": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.CreditAmountLessThanZeroMessage": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.CustomerName": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.Debit(System.Double)": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.DebitAmountExceedsBalanceMessage": "Bank.Domain.BankAccount.yml",
+  "Bank.Domain.BankAccount.DebitAmountLessThanZeroMessage": "Bank.Domain.BankAccount.yml"
+}
