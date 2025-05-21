@@ -42,3 +42,4 @@ jobs:
           publish_dir: ./Bank/StrykerOutput
           destination_dir: mutacion
           publish_branch: gh-pages
+          force_orphan: true
