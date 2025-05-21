@@ -2,14 +2,13 @@
 _layout: landing
 ---
 
-# Documentacion de BankDomain
+# Documentación del Proyecto BankDomain
 
-<!-- Enlaces personalizados -->
-<p>
-  <a href="/lab-2025-i-si784-u2-05-cs-Brunoenr02/coverage/index.htm">Ver Reporte de Cobertura</a> |
-  <a href="/lab-2025-i-si784-u2-05-cs-Brunoenr02/api/">Ver Documentación de Clases</a>
-</p>
+Bienvenido a la documentación del **BankDomain**.
 
-// ... existing code ...
+## Recursos 
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
+- [Ver Reporte de Cobertura](./coverage/index.htm)
+- [Ver Documentación de Clases (API)](./api/)
+
+> Para más detalles sobre la sintaxis Markdown, consulta [Markdown Guide](http://daringfireball.net/projects/markdown/).
