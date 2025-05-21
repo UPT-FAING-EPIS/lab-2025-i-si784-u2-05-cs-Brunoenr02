@@ -33,7 +33,7 @@ jobs:
 
       - name: Ejecutar Stryker
         working-directory: ./Bank
-        run: dotnet-stryker -p Bank/Bank.Domain.Tests/Bank.Domain.Tests.csproj --reporter html
+        run: dotnet-stryker -p Bank.Domain.Tests/Bank.Domain.Tests.csproj --reporter html
 
       - name: Publicar reporte en GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
