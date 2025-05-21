@@ -6,9 +6,10 @@ _layout: landing
 
 Bienvenido a la documentación del **BankDomain**.
 
-## Recursos 
+## Recursos
 
 - [Ver Reporte de Cobertura](./coverage/index.htm)
-- [Ver Documentación de Clases (API)](./api/)
+- [Ver Documentación de Clases (API)](./api/Bank.Domain.html)
+- [Ver Documentación de la Clase BankAccount](./api/Bank.Domain.BankAccount.html)
 
-> Para más detalles sobre la sintaxis Markdown, consulta [Markdown Guide](http://daringfireball.net/projects/markdown/).
+Para más detalles sobre la sintaxis Markdown, consulta [Markdown Guide](http://daringfireball.net/projects/markdown/).
