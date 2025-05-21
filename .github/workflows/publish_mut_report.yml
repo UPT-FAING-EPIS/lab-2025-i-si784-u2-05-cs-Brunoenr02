@@ -32,7 +32,7 @@ jobs:
         run: dotnet tool install -g dotnet-stryker
 
       - name: Ejecutar Stryker
-        run: dotnet-stryker -p Bank/Bank.Domain.Tests/Bank.Domain.Tests.csproj --reporters html
+        run: dotnet-stryker -p Bank/Bank.Domain.Tests/Bank.Domain.Tests.csproj --reporter html
 
       - name: Publicar reporte en GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
