@@ -26,7 +26,7 @@ jobs:
         run: dotnet build Bank/Bank.sln --configuration Release --no-restore
 
       - name: Ejecutar pruebas
-        run: dotnet test Bank/Bank.sln --no-build --verbosity normal
+        run: dotnet test Bank/Bank.sln --no-build --configuration Release --verbosity normal
 
       - name: Instalar Stryker
         run: dotnet tool install -g dotnet-stryker
