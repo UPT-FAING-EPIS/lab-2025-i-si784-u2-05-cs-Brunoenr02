@@ -33,7 +33,7 @@ jobs:
 
       - name: Ejecutar Stryker
         working-directory: ./Bank
-        run: dotnet-stryker --reporter html --output-path StrykerOutput
+        run: dotnet-stryker --reporter html --output StrykerOutput
 
       - name: Renombrar mutation-report.html a index.html
         run: |
