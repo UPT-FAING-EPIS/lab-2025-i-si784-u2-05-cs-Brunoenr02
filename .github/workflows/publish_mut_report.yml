@@ -33,13 +33,17 @@ jobs:
 
       - name: Ejecutar Stryker
         working-directory: ./Bank
-        run: dotnet-stryker --reporter html
+        run: dotnet-stryker --reporter html --output-path StrykerOutput
+
+      - name: Renombrar mutation-report.html a index.html
+        run: |
+          cp Bank/StrykerOutput/reports/mutation-report.html Bank/StrykerOutput/reports/index.html
 
       - name: Publicar reporte en GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Bank/StrykerOutput
+          publish_dir: ./Bank/StrykerOutput/reports
           destination_dir: mutacion
           publish_branch: gh-pages
           force_orphan: true
