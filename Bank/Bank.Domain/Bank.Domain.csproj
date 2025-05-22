@@ -7,6 +7,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
     <PackageVersion>20.2307.7472</PackageVersion>
+    <PackageId>Bank.Domain.Lab05.Brunoenr02</PackageId>
   </PropertyGroup>
 
 </Project>
