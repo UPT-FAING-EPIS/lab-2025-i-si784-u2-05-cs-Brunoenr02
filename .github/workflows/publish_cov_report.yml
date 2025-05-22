@@ -41,3 +41,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./Bank/Cobertura
           destination_dir: coverage
+          keep_files: true

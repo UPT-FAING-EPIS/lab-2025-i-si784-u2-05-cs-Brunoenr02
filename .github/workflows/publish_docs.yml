@@ -35,3 +35,4 @@ jobs:
         publish_branch: gh-pages
         user_name: 'GitHub Actions'
         user_email: 'github-actions@users.noreply.github.com'
+        keep_files: true
