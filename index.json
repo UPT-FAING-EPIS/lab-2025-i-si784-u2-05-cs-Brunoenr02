@@ -1,0 +1,27 @@
+{
+  "api/Bank.Domain.BankAccount.html": {
+    "href": "api/Bank.Domain.BankAccount.html",
+    "title": "Class BankAccount | Bank",
+    "summary": "Class BankAccount Namespace Bank.Domain Assembly Bank.Domain.dll Representa una cuenta bancaria con funcionalidades para acreditar y debitar fondos. public class BankAccount Inheritance object BankAccount Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Constructors BankAccount(string, double) Inicializa una nueva instancia de la clase BankAccount con el nombre del cliente y el saldo inicial. public BankAccount(string customerName, double balance) Parameters customerName string Nombre del titular de la cuenta. balance double Saldo inicial de la cuenta. Fields CreditAmountLessThanZeroMessage Mensaje de error cuando el monto a acreditar es menor que cero. public const string CreditAmountLessThanZeroMessage = \"Credit amount is less than zero\" Field Value string DebitAmountExceedsBalanceMessage Mensaje de error cuando el monto a debitar excede el saldo disponible. public const string DebitAmountExceedsBalanceMessage = \"Debit amount exceeds balance\" Field Value string DebitAmountLessThanZeroMessage Mensaje de error cuando el monto a debitar es menor que cero. public const string DebitAmountLessThanZeroMessage = \"Debit amount is less than zero\" Field Value string Properties Balance Obtiene el saldo actual de la cuenta. public double Balance { get; } Property Value double CustomerName Obtiene el nombre del titular de la cuenta. public string CustomerName { get; } Property Value string Methods Credit(double) Acredita un monto especificado a la cuenta. public void Credit(double amount) Parameters amount double Monto a acreditar. Exceptions ArgumentOutOfRangeException Se lanza cuando el monto es menor que cero. Debit(double) Debita un monto especificado de la cuenta. public void Debit(double amount) Parameters amount double Monto a debitar. Exceptions ArgumentOutOfRangeException Se lanza cuando el monto es menor que cero o excede el saldo disponible."
+  },
+  "api/Bank.Domain.html": {
+    "href": "api/Bank.Domain.html",
+    "title": "Namespace Bank.Domain | Bank",
+    "summary": "Namespace Bank.Domain Classes BankAccount Representa una cuenta bancaria con funcionalidades para acreditar y debitar fondos."
+  },
+  "docs/getting-started.html": {
+    "href": "docs/getting-started.html",
+    "title": "Getting Started | Bank",
+    "summary": "Getting Started"
+  },
+  "docs/introduction.html": {
+    "href": "docs/introduction.html",
+    "title": "Introduction | Bank",
+    "summary": "Introduction"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Documentación del Proyecto BankDomain | Bank",
+    "summary": "Documentación del Proyecto BankDomain Bienvenido a la documentación del BankDomain. Recursos Ver Reporte de Cobertura Ver Documentación de Clases (API) Ver Documentación de la Clase BankAccount Ver Reporte de Mutaciones Para más detalles sobre la sintaxis Markdown, consulta Markdown Guide."
+  }
+}
