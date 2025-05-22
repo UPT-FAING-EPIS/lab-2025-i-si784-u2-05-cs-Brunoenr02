@@ -1,0 +1,45 @@
+name: Actividad05 - Release NuGet
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restaurar dependencias
+        run: dotnet restore Bank/Bank.sln
+
+      - name: Compilar solución
+        run: dotnet build Bank/Bank.sln --configuration Release --no-restore
+
+      - name: Empaquetar NuGet con código de matrícula como versión
+        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release --no-build -p:PackageVersion=2023077472
+
+      - name: Publicar NuGet en GitHub Packages
+        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.2023077472.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v2023077472
+          name: Release 2023077472
+          body: |
+            Release automático generado por GitHub Actions.
+          files: Bank/Bank.Domain/bin/Release/Bank.Domain.2023077472.nupkg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
