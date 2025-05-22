@@ -26,7 +26,7 @@ jobs:
         run: dotnet build Bank/Bank.sln --configuration Release --no-restore
 
       - name: Empaquetar NuGet con código de matrícula como versión
-        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release --no-build -p:PackageVersion=2023077472
+        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release -p:PackageVersion=2023077472
 
       - name: Agregar source de GitHub Packages
         run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
