@@ -1,48 +1,51 @@
 name: Actividad05 - Release NuGet
 
 on:
-  workflow_dispatch:
   push:
     tags:
       - 'v*'
 
 jobs:
-  build-and-publish:
+  release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
 
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Configurar .NET
-        uses: actions/setup-dotnet@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restaurar dependencias
-        run: dotnet restore Bank/Bank.sln
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
-      - name: Compilar solución
-        run: dotnet build Bank/Bank.sln --configuration Release --no-restore
+      - name: Set version in .csproj
+        run: sed -i.bak "s|<PackageVersion>.*</PackageVersion>|<PackageVersion>${VERSION}</PackageVersion>|" Bank/Bank.Domain/Bank.Domain.csproj
 
-      - name: Empaquetar NuGet con código de matrícula como versión
-        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release -p:PackageVersion=20.2307.7472
+      - name: Clean sed backup file
+        run: rm Bank/Bank.Domain/Bank.Domain.csproj.bak
 
-      - name: Agregar source de GitHub Packages
-        run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+      - name: Restore dependencies
+        run: dotnet restore Bank/Bank.Domain/Bank.Domain.csproj
 
-      - name: Publicar NuGet en GitHub Packages
-        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg --source "github" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+      - name: Build the project
+        run: dotnet build Bank/Bank.Domain/Bank.Domain.csproj --configuration Release
 
-      - name: Crear Release en GitHub
-        uses: softprops/action-gh-release@v1
+      - name: Pack the NuGet package
+        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release --output ./nupkg
+
+      - name: Publish package to GitHub Packages
+        run: dotnet nuget push "./nupkg/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: v20.2307.7472
-          name: Release 20.2307.7472
-          body: |
-            Release automático generado por GitHub Actions.
-          files: Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          files: ./nupkg/*.nupkg
