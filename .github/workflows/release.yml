@@ -32,9 +32,9 @@ jobs:
         run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
       - name: Publicar NuGet en GitHub Packages
-        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg --source "github" --api-key ${{ secrets.GH_PACKAGES_TOKEN }}
         env:
-          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUGET_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
 
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
@@ -45,4 +45,4 @@ jobs:
             Release automático generado por GitHub Actions.
           files: Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
