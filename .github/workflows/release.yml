@@ -26,23 +26,23 @@ jobs:
         run: dotnet build Bank/Bank.sln --configuration Release --no-restore
 
       - name: Empaquetar NuGet con código de matrícula como versión
-        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release -p:PackageVersion=2023077472
+        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj --configuration Release -p:PackageVersion=20.2307.7472
 
       - name: Agregar source de GitHub Packages
         run: dotnet nuget add source --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
 
       - name: Publicar NuGet en GitHub Packages
-        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.2023077472.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet nuget push Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v2023077472
-          name: Release 2023077472
+          tag_name: v20.2307.7472
+          name: Release 20.2307.7472
           body: |
             Release automático generado por GitHub Actions.
-          files: Bank/Bank.Domain/bin/Release/Bank.Domain.2023077472.nupkg
+          files: Bank/Bank.Domain/bin/Release/Bank.Domain.20.2307.7472.nupkg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

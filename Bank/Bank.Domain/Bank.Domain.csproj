@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
-    <PackageVersion>2023077472</PackageVersion>
+    <PackageVersion>20.2307.7472</PackageVersion>
   </PropertyGroup>
 
 </Project>
