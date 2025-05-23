@@ -2,12 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <Version>20.2307.7472</Version>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Authors>Brunoenr02</Authors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>1591</NoWarn>
-    <PackageVersion>20.2307.7472</PackageVersion>
-    <PackageId>Bank.Domain.Lab05.Brunoenr02</PackageId>
+    <PackageDescription>BankDomain</PackageDescription>
+    <PackageId>BankDomainLab05.Brunoenr02</PackageId>
+    <RepositoryUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-05-cs-Brunoenr02</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/UPT-FAING-EPIS/lab-2025-i-si784-u2-05-cs-Brunoenr02</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
